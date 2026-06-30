@@ -1,0 +1,472 @@
+{
+  "projects": [
+    {
+      "id": "dify",
+      "name": "Dify",
+      "owner": "langgenius",
+      "repoUrl": "https://github.com/langgenius/dify",
+      "homepage": "https://dify.ai",
+      "language": "TypeScript",
+      "languageColor": "#3178c6",
+      "stars": 110000,
+      "forks": 16800,
+      "growth": "+8.2k",
+      "tags": ["AI", "LLM", "Agent", "低代码", "RAG", "可视化"],
+      "category": "AI Agent",
+      "summary": "把 LLM 应用做成可一键部署的可视化产品",
+      "intro": "Dify 是一款面向生产环境的 LLM 应用开发平台，把 Prompt 工程、RAG、Agent 工作流、可观测性这些过去需要拼凑的能力，整合成了一个可视化、可一键部署的产品。\n\n它最早源自一个 AWS 的内部工具，由前 AWS 工程师在 2023 年开源，凭「比 LangChain 更易用、比 Flowise 更生产」的精准定位，三年内成为企业 AI 落地的事实标准之一。\n\nDify 不是一个框架（像 LangChain），也不是一个模型（像 Ollama），而是一整套「开箱即用的 AI 中台」——你不需要再自己拼向量库、拼 Agent 调度器、拼监控告警，Dify 已经把这些都做成了可配置的模块。",
+      "background": "Dify 团队的判断是：LLM 应用的最大瓶颈不是模型本身，而是「从 PoC 到生产」的工程化鸿沟。开发者花一周做出来的 demo，往往三个月还上不了线——因为缺 RAG、缺监控、缺权限、缺 API 网关。\n\nDify 的解法是把这套工程化底座「产品化」：用户拖拽节点就能搭出 RAG/Agent/工作流，一键部署成 SaaS API，自带监控、日志、反馈闭环。这让它在企业市场特别受欢迎——大客户不愿意招一个 AI 团队搭轮子，他们想要的是一个能跑十年的产品。",
+      "howItWorks": "Dify 走的是「低代码 + 透明」路线，核心架构分四层：\n\n1. **模型层**：适配 OpenAI / Anthropic / Gemini / 本地 Ollama 等 50+ 模型，统一调用接口\n2. **编排层**：可视化工作流编辑器，节点支持 LLM、知识库、代码、HTTP、条件分支、循环\n3. **数据层**：内置 10+ 向量库连接器（Qdrant / Weaviate / Milvus / PGVector 等），RAG 一键接入\n4. **应用层**：把编排结果发布成 Web App、API、嵌入页面，或导出为可嵌入自家产品的 SDK\n\n所有节点都暴露完整的输入输出、token 消耗、延迟数据，调试像在 IDE 里设断点。",
+      "whyHot": [
+        "AI Agent 浪潮下最缺的「能上线」的工程化底座，自托管 + SaaS 双形态适配企业合规",
+        "可视化编排 + 50+ 模型/向量库连接器，让不懂模型的人也能搭出可用 Agent",
+        "内置 RAG、Workflow、监控、评估闭环，是少数走完 PoC→生产全链路的开源项目",
+        "社区版采用 BSUL 协议，企业版商业授权，对初创团队和大厂同样友好",
+        "Dify.AI 云服务直接可用，团队不用操心部署，三分钟就能跑第一个 Agent"
+      ],
+      "highlights": [
+        "可视化 Prompt IDE / 工作流编辑器，所见即所得",
+        "支持 OpenAI / Claude / Gemini / 本地 Ollama / Hugging Face 等 50+ 模型",
+        "内置 RAG 引擎、Agent 工具调用、知识库管理",
+        "可观测性、用户反馈、人工标注、AB 测试齐全",
+        "一键发布为 SaaS / API / 嵌入式组件三种形态"
+      ],
+      "useCases": [
+        "企业知识库问答系统：上传 PDF/Word/Notion → 自动索引 → 内部员工对话式查询",
+        "电商客服 Agent：接入订单/物流 API → 处理 80% 常见问题 → 复杂问题转人工",
+        "AI 营销助手：拖拽式编排文案生成 + 多平台发布 + 转化数据回流",
+        "教育/法律/医疗的垂类助手：私有部署保证数据不出域"
+      ],
+      "gradient": ["#ff6b6b", "#ee5a6f"]
+    },
+    {
+      "id": "open-webui",
+      "name": "Open WebUI",
+      "owner": "open-webui",
+      "repoUrl": "https://github.com/open-webui/open-webui",
+      "homepage": "https://openwebui.com",
+      "language": "Python",
+      "languageColor": "#3572A5",
+      "stars": 102000,
+      "forks": 14300,
+      "growth": "+5.1k",
+      "tags": ["LLM", "Chat UI", "本地部署", "Ollama", "RAG", "ChatGPT"],
+      "category": "AI 工具",
+      "summary": "本地/私有化 LLM 的最强 ChatGPT 替代前端",
+      "intro": "Open WebUI 是一款兼容 Ollama 与 OpenAI 协议的可自托管对话界面，主打「把任何模型变成 ChatGPT」的完整体验。\n\n它的作者原本只是想给家里的 RTX 4090 写一个比 `ollama run` 更友好的聊天界面，结果这个项目 GitHub Star 在一年内突破 10 万，成为 Mac mini + 4090 玩家的事实标配。\n\n它把 ChatGPT 几乎所有好用的功能（多模型切换、对话分支、插件、语音、图片识别、RAG）全部抄过来，并且 100% 跑在你自己的机器上，数据不外流。这对隐私敏感的开发者和企业来说，是 ChatGPT 永远给不了的承诺。",
+      "background": "Open WebUI 的崛起踩准了三个时间点：\n\n1. **2023 年 Q4**：Ollama 让本地跑模型变简单，但原生界面只有命令行\n2. **2024 年 Q1**：开发者发现 ChatGPT 的体验和本地模型的能力之间缺一座桥\n3. **2024 年 Q2**：开源社区集体转向「自托管 AI」，Open WebUI 成为首选 UI\n\n它没有做任何模型训练或推理优化，纯粹是把「一个能用的 AI 聊天界面」做到极致——这反而成了它最大的护城河。",
+      "howItWorks": "技术上，Open WebUI 是一个典型的 FastAPI + SvelteKit 全栈应用：\n\n- **后端**：Python FastAPI 处理对话管理、模型路由、用户权限、文件存储\n- **前端**：SvelteKit 实现的响应式聊天界面，PWA 体验，可装到桌面\n- **模型层**：通过 Ollama / OpenAI 兼容 API 调用模型，本地与云端无缝切换\n- **存储**：SQLite (轻量) / PostgreSQL (生产)，文档和图片走本地文件系统\n\n独特之处在于它的「插件系统」——通过 Pip 装的 Python 包和前端 JS 模块都能直接被调用，等于一个 mini 版的 ChatGPT Plugin Store。",
+      "whyHot": [
+        "对标 ChatGPT 的体验 + 100% 数据私有，命中企业/个人对 LLM UI 的最大需求",
+        "原生支持 Ollama，让 Mac mini / 4090 一键变成本地 AI 工作站",
+        "多用户、RBAC、知识库、插件市场齐全，社区驱动的迭代速度极快",
+        "语音输入、文件对话、网页浏览、代码执行这些 ChatGPT Plus 功能全都免费",
+        "PWA + 桌面客户端，覆盖桌面/平板/手机所有场景"
+      ],
+      "highlights": [
+        "ChatGPT 风格 UI，零学习成本，习惯 ChatGPT 的用户秒上手",
+        "支持 Ollama / OpenAI 兼容 API，本地模型与云端模型同一个界面切换",
+        "多用户、权限、模型分享、团队空间，企业级管理能力",
+        "内置 RAG、网页浏览、代码解释、图像生成 (DALL-E/SD)、语音合成/识别",
+        "插件市场和 Function Calling，扩展能力持续增长"
+      ],
+      "useCases": [
+        "个人本地 AI 工作站：Mac mini / 4090 + Ollama + Open WebUI = 私有 ChatGPT",
+        "中小企业内部 AI 平台：用户管理 + 知识库 + 审计日志，部署在内网",
+        "AI 重度玩家试验场：同一界面切换 GPT-4 / Claude / 本地 Qwen，做能力对比",
+        "教育/科研：免费给学生/研究员用，避开 API 费用"
+      ],
+      "gradient": ["#3b82f6", "#06b6d4"]
+    },
+    {
+      "id": "claude-code",
+      "name": "Claude Code",
+      "owner": "anthropics",
+      "repoUrl": "https://github.com/anthropics/claude-code",
+      "homepage": "https://docs.claude.com/en/docs/claude-code",
+      "language": "Python",
+      "languageColor": "#3572A5",
+      "stars": 21000,
+      "forks": 1700,
+      "growth": "+3.4k",
+      "tags": ["AI 编程", "CLI", "Anthropic", "终端", "Agent", "MCP"],
+      "category": "AI 编程",
+      "summary": "Anthropic 官方推出的终端 AI 编程助手",
+      "intro": "Claude Code 是 Anthropic 推出的命令行 AI 编程助手，直接读懂你的整个代码库，通过自然语言完成重构、解释、git 流程等任务。\n\n和 Cursor / Copilot 这种「装在 IDE 里」的工具不同，Claude Code 是为资深开发者的「终端生活」设计的——没有 IDE 锁定、不用切窗口、shell 里一个 `claude` 命令就能干活。\n\n它最厉害的地方是 200K 上下文窗口 + 工具调用（MCP 协议）：能像人一样「读仓库、跑命令、提 PR」，而不仅仅是补全代码。对很多独立开发者和运维来说，Claude Code 已经成了比 IDE 内 AI 助手更顺手的选择。",
+      "background": "Claude Code 来自 Anthropic 的一个内部实验——他们想验证：「如果把 Claude 4 的 200K 上下文用满，AI 编程能做到什么程度？」\n\n结果发现：当 AI 能「看见」整个代码库时，它的代码理解能力会发生质变。不再是「基于光标附近 50 行猜你想写什么」，而是「我先读懂你项目用了什么 ORM、什么状态管理、什么测试框架，再给出一个符合项目风格的建议」。\n\n2025 年 2 月开源后，Claude Code 迅速成为最受欢迎的命令行 AI 编程工具——它证明了一件事：CLI 形态的 AI 编程不是复古，而是更适合深度工程的形态。",
+      "howItWorks": "Claude Code 的技术核心是三个组件：\n\n1. **Agent 运行时**：基于 Claude 4 模型，200K 上下文，能规划多步任务（读文件 → 改代码 → 跑测试 → 改 PR 描述）\n2. **MCP (Model Context Protocol)**：Anthropic 推出的开放协议，让 Claude Code 与外部工具（数据库、浏览器、Jira、Slack）通信\n3. **Slash Commands**：可自定义的指令（如 `/review`、`/refactor`），复用最佳实践\n\n工作流示例：`claude \"重构 auth 模块用新的 RBAC 设计\"` → 自动找到相关文件 → 制定重构计划 → 修改代码 → 跑测试 → 输出 diff → （可选）提 PR。",
+      "whyHot": [
+        "Anthropic 官方背书 + Claude 4 长上下文（200K），是少数能「真看懂仓库」的 Agent",
+        "纯终端形态 + 深度 MCP 集成，符合资深开发者的肌肉记忆",
+        "Cursor / Copilot 的最强开源对手，CLI 玩家集体迁移",
+        "Skills 生态：社区贡献的 workflow 覆盖 PR Review、TDD、重构、迁移等场景",
+        "不需要 IDE，可以在 SSH 进远程服务器时直接用，对运维/DevOps 极度友好"
+      ],
+      "highlights": [
+        "终端原生体验，零 IDE 锁定，shell 一条命令开始干活",
+        "可执行多文件重构、跑测试、提 PR，真正能落地的 Agent",
+        "支持自定义 Slash Commands 和 Skills，把团队最佳实践沉淀成 AI 流程",
+        "通过 MCP 连接任意工具链（数据库 / 浏览器 / GitHub / Jira）",
+        "开源 Anthropic 模型 + 闭源 CLI 组合，可商用"
+      ],
+      "useCases": [
+        "深度代码重构：跨 50+ 文件的架构升级，让 AI 帮你做规划 + 实施 + 测试",
+        "遗留代码理解：丢给 Claude Code 一整个陌生仓库，让它解释架构 + 画依赖图",
+        "团队 PR Review：用 `/review` 自动检查代码风格、安全漏洞、性能问题",
+        "DevOps/运维：SSH 进服务器后直接 `claude` 排查日志、修改配置、写脚本"
+      ],
+      "gradient": ["#d97706", "#f59e0b"]
+    },
+    {
+      "id": "firecrawl",
+      "name": "Firecrawl",
+      "owner": "firecrawl",
+      "repoUrl": "https://github.com/firecrawl/firecrawl",
+      "homepage": "https://firecrawl.dev",
+      "language": "TypeScript",
+      "languageColor": "#3178c6",
+      "stars": 30000,
+      "forks": 3000,
+      "growth": "+2.8k",
+      "tags": ["爬虫", "AI 数据", "API", "RAG", "Markdown", "Agent"],
+      "category": "开发者工具",
+      "summary": "为 LLM 而生的网页抓取 / 爬取 API",
+      "intro": "Firecrawl 把「爬整个网站 → 输出干净的 Markdown / 结构化数据」做成了一行 API，专门解决「怎么把互联网喂给大模型」的痛点。\n\n传统的爬虫工具（Scrapy / BeautifulSoup）需要你写代码处理反爬、渲染、清洗——而 LLM 需要的不是 HTML，是干净的 Markdown；不是一堆标签，是语义化的段落。Firecrawl 直接给你 LLM-ready 的数据。\n\n更狠的是它把「整站爬取」做成了异步任务：你提交一个 URL，它后台排队慢慢爬，完了回调你的 webhook。对于做 RAG 知识库、AI Agent 训练数据收集、舆情监控的团队来说，这省掉了一整个爬虫工程师的工时。",
+      "background": "Firecrawl 的创始人 Mendable.ai 团队原本在做 AI 客服，发现一个工程问题：「我们要给客户做 RAG，但客户的网站数据要自己爬，爬完还要清洗成 LLM 能用的格式」。\n\n他们发现这个工作占整个项目 60% 的时间，于是把爬虫部分抽出来做成产品——结果这才是真痛点，所有做 RAG 的人都需要它。\n\n2024 年开源后，Firecrawl 迅速成为 LangChain / LlamaIndex 的官方推荐爬虫，GitHub 一年涨到 30k Star。",
+      "howItWorks": "Firecrawl 的核心是一个「云原生爬虫集群」：\n\n1. **反爬层**：内置 IP 代理池、浏览器指纹伪装、自动重试\n2. **渲染层**：Playwright 处理 JS 动态渲染，等待 DOM 稳定后再抓取\n3. **清洗层**：用启发式 + 视觉模型提取正文，去除导航/广告/页脚\n4. **输出层**：输出 Markdown / JSON / HTML，可指定 schema 做结构化\n\nAPI 设计极简——\n```bash\ncurl -XPOST https://api.firecrawl.dev/v0/scrape \\\n  -d '{\"url\": \"https://example.com\"}'\n```\n返回的就是干净的 Markdown。对开发者极度友好。",
+      "whyHot": [
+        "Agent / RAG 时代最稀缺的「干净网页数据源」，竞品要么贵要么反爬",
+        "开源自托管 + 托管 SaaS 两套模式，API 极简（一行 curl 即可）",
+        "动态渲染、代理池、JS 执行都内置，开发者直接专注业务",
+        "LangChain / LlamaIndex / Dify 官方集成，生态卡位精准",
+        "支持整站爬取、增量更新、结构化提取，复杂度全封装"
+      ],
+      "highlights": [
+        "整站爬取 / 单页抓取 / 搜索三种 API，覆盖 90% 数据采集需求",
+        "输出 Markdown / JSON / HTML，可指定 JSON schema 做结构化提取",
+        "支持动态渲染、反爬、JS 执行、SPA 网站",
+        "异步任务 + webhook 回调，长任务不掉线",
+        "LangChain / LlamaIndex / Dify / n8n 官方集成"
+      ],
+      "useCases": [
+        "企业 RAG 知识库：爬取官网/帮助中心/Notion → 喂给 Dify 做客服问答",
+        "AI 训练数据收集：批量爬行业报告/学术论文，构建垂类微调数据集",
+        "竞品监控：定时爬竞品页面，结构化提取价格/功能/活动，日报提醒",
+        "招聘/线索挖掘：爬 LinkedIn/GitHub/行业网站，提取关键信息进 CRM"
+      ],
+      "gradient": ["#f97316", "#ef4444"]
+    },
+    {
+      "id": "cc-switch",
+      "name": "CC Switch",
+      "owner": "farion1231",
+      "repoUrl": "https://github.com/farion1231/cc-switch",
+      "homepage": "https://ccswitch.io",
+      "language": "Rust",
+      "languageColor": "#dea584",
+      "stars": 12000,
+      "forks": 800,
+      "growth": "+1.9k",
+      "tags": ["AI 工具", "桌面应用", "Rust", "CLI 管理", "Claude Code", "Codex"],
+      "category": "AI 工具",
+      "summary": "统一管理多个 AI 编程 CLI 的桌面面板",
+      "intro": "CC Switch 是一款跨平台桌面应用，把 Claude Code、Codex、OpenCode、Gemini CLI 等多个 AI 编程 Agent 统一管理，一键切换。\n\n2026 年开发者的电脑里通常装着 5+ AI CLI——Claude Code、Codex、OpenCode、Gemini CLI、Hermes Agent…… 切换它们要在终端里改环境变量、改 config 文件、改 provider key，体验极其痛苦。\n\nCC Switch 解决的就是这个「切工具疲劳」——一个原生应用统一管理所有 AI 编程 Agent 的配置、调用记录、提示词库、统计。Rust 写的，启动秒开，跨平台，体验比官方商业产品更流畅。",
+      "background": "CC Switch 的开发者 farion1231 是个开源老兵，他做这个项目的动机很真实：\n\n「我电脑上装了 6 个 AI CLI，每天在它们之间切换要花 10 分钟配置。AI 工具爆炸后，反而效率下降了。」\n\n他决定做一个小工具解决这个问题，结果这个「给自己用」的项目，在 Rust 社区和 AI 编程圈子里一传十十传百，半年涨了 1.2 万 Star。\n\n它证明了一个反直觉的道理：AI 时代最稀缺的不是新模型，而是「管理 AI 工具的工具」。",
+      "howItWorks": "CC Switch 是个典型的 Tauri 桌面应用：\n\n- **前端**：React + Tailwind，原生窗口体验\n- **后端**：Rust 进程，负责读写各 AI CLI 的配置文件、检测状态、统计调用\n- **配置中心**：统一管理所有 CLI 的 Provider、API Key、Model、System Prompt\n- **调用面板**：一键启动任意 CLI，自动注入正确环境变量\n- **统计仪表盘**：每个 CLI 的调用次数、token 消耗、成功率\n\n设计上故意做得很「轻」——不是 IDE，不接管编辑器，只是一个「配置中心 + 启动器」。",
+      "whyHot": [
+        "AI 编程 Agent 爆发后，开发者电脑里塞了 5+ 个 CLI，CC Switch 解决了「切工具疲劳」",
+        "Rust 写的原生体验 + macOS/Windows/Linux 全平台，开箱即用",
+        "免费开源，社区驱动，比官方商业产品更敏捷",
+        "调用记录 + 统计 + 提示词库，把 AI 编程从「用工具」升级为「管工具」",
+        "对 OpenCode / Codex / Claude Code / Gemini CLI / Hermes Agent 全部支持"
+      ],
+      "highlights": [
+        "一个面板管理所有 AI CLI，告别切来切去",
+        "统一模型/Provider/Key 配置，告别改 .env 文件",
+        "调用记录、统计、提示词库，让 AI 使用「可量化」",
+        "原生体验，零启动延迟，比 Web 端面板流畅 10 倍",
+        "完全免费开源，Apache 2.0 协议"
+      ],
+      "useCases": [
+        "重度 AI 编程玩家：6+ AI CLI 在手，一键切换不用改环境变量",
+        "AI 编程团队 Leader：统一管理团队成员的工具配置，统计 token 消耗做成本控制",
+        "Agent 实验者：同一项目试不同 CLI 效果，对比数据，决策用哪个",
+        "远程办公：不同项目用不同 Provider，CC Switch 帮你按项目切配置"
+      ],
+      "gradient": ["#a78bfa", "#ec4899"]
+    },
+    {
+      "id": "agency-agents",
+      "name": "Agency Agents",
+      "owner": "msitarzewski",
+      "repoUrl": "https://github.com/msitarzewski/agency-agents",
+      "homepage": "https://spezi.dev/agency-agents",
+      "language": "Shell",
+      "languageColor": "#89e051",
+      "stars": 26000,
+      "forks": 3200,
+      "growth": "+18.5k",
+      "tags": ["AI Agent", "Prompt", "开源", "多 Agent", "人设", "SOP"],
+      "category": "AI Agent",
+      "summary": "一整套开箱即用的 AI Agent 人设库",
+      "intro": "Agency Agents 是一套完整的多 Agent 协作配置——前端巫师、Reddit 社区忍者、现实检验员…… 每个 Agent 都是带人格、流程、交付物的专家。\n\n它做的事情看似简单：把 AI 编程/营销/运营的常见岗位，写成 30+ 套可直接使用的 Agent 配置。每一套配置都包含 System Prompt、工具调用、SOP、输出模板。\n\n效果是什么？你不需要自己「调教」AI 写小红书文案——直接调「Reddit 社区忍者」Agent 就行；你要做 Code Review——调「Code Review 严肃守卫」Agent；要做产品 Landing Page——调「Landing Page 专家」Agent。",
+      "background": "这个项目的作者 msitarzewski 是个独立开发者，他做这个项目的初衷是：\n\n「我发现过去一年我写了 50 多个 System Prompt，每次新项目都从零开始调。能不能把这些「经过验证的 Agent 配置」开源出来，让所有人少走弯路？」\n\n结果证明这个判断完全正确——所有做 AI 应用的团队，最耗时的不是写代码，而是「调教 Agent」。把 30+ 个调好的 Agent 一次开源，等于把「调教成本」从一周缩短到一分钟。\n\n半年涨 1.8 万 Star，是 Prompt 工程这个新工种的「工业化产品」。",
+      "howItWorks": "Agency Agents 的结构极简：每个 Agent 就是一个 Markdown 文件 + 可选的 Skill 脚本：\n\n```\nagency-agents/\n├── agents/\n│   ├── reddit-community-ninja.md    # Reddit 社区运营专家\n│   ├── frontend-wizard.md           # 前端工程师 Agent\n│   ├── code-review-guard.md         # Code Review 严肃守卫\n│   ├── reality-checker.md           # 现实检验员\n│   └── ... (30+ 个)\n├── skills/\n│   └── *.sh                          # 配套工具脚本\n└── README.md                         # 总目录\n```\n\n每个 Markdown 文件的格式都是一致的：\n1. **角色定位**：这个 Agent 是什么、给谁用\n2. **System Prompt**：完整的人格+能力+边界\n3. **SOP**：标准工作流程\n4. **Output Template**：输出格式模板\n5. **Examples**：2-3 个示例对话\n\n这种「工业化的 Prompt 规范」让 Agent 从「艺术品」变成了「流水线产品」。",
+      "whyHot": [
+        "把「提示词工程」产品化：直接拿来用，零调优",
+        "覆盖 30+ 真实岗位的 Agent 角色，比单点提示词库有体系",
+        "Shell + Markdown 极简结构，开发者一眼看懂、二次修改",
+        "每个 Agent 都附 SOP 和输出模板，不只是 prompt 而是「工作流」",
+        "社区驱动，角色持续增加，已经成为「AI 团队配置」的事实标准"
+      ],
+      "highlights": [
+        "30+ 真实岗位的 Agent 角色，覆盖工程/营销/运营/设计/产品",
+        "每个 Agent 都有 SOP 与交付物，不是 prompt 段子而是完整工作流",
+        "支持 Claude / Cursor / Codex / Gemini CLI 等任意 LLM 工具",
+        "可作为团队 AI 协作规范，新人入职直接发这个仓库",
+        "Apache 2.0 协议，二次定制无限制"
+      ],
+      "useCases": [
+        "AI 团队标准化：把 Agency Agents 作为团队 AI 协作规范，避免每个人自己调 prompt",
+        "营销/运营/设计团队的「AI 员工」：30+ 岗位 Agent 直接调用，零研发",
+        "Prompt 工程学习：研究 30 个高质量 Agent 配置，比读十本书更直接",
+        "创业团队一人多岗：借一个 Agent 顶一个员工，48 小时跑通 MVP"
+      ],
+      "gradient": ["#10b981", "#14b8a6"]
+    },
+    {
+      "id": "langchain",
+      "name": "LangChain",
+      "owner": "langchain-ai",
+      "repoUrl": "https://github.com/langchain-ai/langchain",
+      "homepage": "https://langchain.com",
+      "language": "Python",
+      "languageColor": "#3572A5",
+      "stars": 98000,
+      "forks": 15500,
+      "growth": "+2.1k",
+      "tags": ["LLM", "RAG", "Agent", "Python", "框架", "标准"],
+      "category": "AI Agent",
+      "summary": "LLM 应用开发的事实标准框架",
+      "intro": "LangChain 是构建 LLM 应用最主流的框架，把 Model I/O、Retrieval、Agent、Memory、Tools 这些核心抽象封装好，让开发者专注业务逻辑。\n\n2023 年 ChatGPT 出圈后，所有人都想用 LLM 做点东西——但每个项目都从零开始拼：怎么调用 API、怎么切上下文、怎么做 RAG、怎么让 Agent 调用工具…… LangChain 的横空出世，把这些「重复造轮子」的工作抽象成了统一接口。\n\n它可能是 2024 年被吐槽最多（「过度抽象」）的框架，但也是 2026 年活下来、被最广泛采用的框架。生态是它最大的护城河——LangSmith 调试、LangServe 部署、LangGraph 多 Agent 编排，几乎是 AI 应用的「全家桶」。",
+      "background": "LangChain 的故事始于 2022 年 10 月，Harrison Chase 在做 GPT-3 应用时发现，每个项目都在重复「拼上下文、拼 RAG、拼工具调用」。他把这些抽象抽出来开源——结果两周内 GitHub 涨了 1 万 Star。\n\n但 LangChain 的真正爆发在 2023 年——Agent 概念出圈，LangChain 的 Agent 模块成了事实标准。同时争议也来了：「抽象太深、文档太乱、版本迭代太快」。\n\n2024 年 LangChain 团队做了重要调整：把核心库和高级库分离（langchain-core vs langchain-community），推出 LangGraph 做状态化的多 Agent 编排，重新赢得了开发者信任。今天 LangChain 已经不再只是一个框架，而是一整套「AI 应用基础设施」。",
+      "howItWorks": "LangChain 的核心抽象是「Chain」（链）和「Agent」（代理）：\n\n**Chain（链）**：把多个 LLM 调用、Prompt 模板、输出解析器、工具调用按顺序/分支/循环组合起来。LCEL (LangChain Expression Language) 用 `|` 运算符声明式定义：\n```python\nchain = prompt | llm | output_parser\n```\n\n**Agent（代理）**：让 LLM 自己决定调用哪些工具（ReAct / Plan-and-Execute / OpenAI Functions 等模式），而不是硬编码流程。\n\n**LangGraph**：用图的方式编排多 Agent 协作，支持状态持久化、人在回路、复杂分支，是 LangChain 2.0 时代的旗舰。\n\n**LangSmith**：可观测性平台，跟踪每次调用的输入输出、token、延迟、错误。",
+      "whyHot": [
+        "AI 应用最成熟的「乐高积木」，生态最全、文档最厚、企业采用率最高",
+        "LangSmith / LangGraph / LangServe 全家桶，串起开发→调试→部署全流程",
+        "几乎所有 LLM 框架都向其 API 看齐，是事实上的标准",
+        "社区贡献的 1000+ 集成（数据源、向量库、模型），新工具出来一周内就有 LangChain 集成",
+        "LCEL 表达能力强，能从「5 行 demo」平滑演进到「500 行生产」"
+      ],
+      "highlights": [
+        "统一 Model I/O 抽象，支持 100+ 模型（OpenAI/Anthropic/Google/本地模型）",
+        "RAG / Agent / Memory / Tools 完整工具箱，覆盖 90% LLM 应用场景",
+        "LangGraph 用于复杂多步 Agent 编排，支持状态机和人在回路",
+        "LangSmith 可观测性平台，跟踪、调试、评估一站式",
+        "LangServe 一键把 Chain 部署为 REST API"
+      ],
+      "useCases": [
+        "企业 RAG 系统：上传文档 → 切分 → 嵌入 → 检索 → 问答，全链路 LangChain 搞定",
+        "复杂多 Agent 协作：用 LangGraph 编排 Research/Writer/Critic 三个 Agent 协作出报告",
+        "AI 应用快速原型：5 行代码跑通第一个 Chain，验证想法后再深度优化",
+        "跨模型迁移：从 OpenAI 迁到 Claude 或本地模型，改一行 import 即可"
+      ],
+      "gradient": ["#10b981", "#0d9488"]
+    },
+    {
+      "id": "ollama",
+      "name": "Ollama",
+      "owner": "ollama",
+      "repoUrl": "https://github.com/ollama/ollama",
+      "homepage": "https://ollama.com",
+      "language": "Go",
+      "languageColor": "#00ADD8",
+      "stars": 138000,
+      "forks": 11500,
+      "growth": "+6.4k",
+      "tags": ["本地模型", "LLM", "Go", "llama.cpp", "Apple Silicon", "推理"],
+      "category": "本地 LLM",
+      "summary": "本地跑大模型的最简单方式",
+      "intro": "Ollama 一行命令就能在本地跑起 Llama、Qwen、DeepSeek 等主流开源大模型，是当下最流行的本地 LLM 运行时。\n\n在 Ollama 出现之前，本地跑大模型要折腾：装 PyTorch、配 CUDA、下载权重、加载模型、写推理代码…… 整个流程没个三五天搞不定。\n\nOllama 创始人 Jeffrey Morgan 看到了这个痛点——他原本在 Docker 团队——用 Docker 的方式做 LLM 运行时：`ollama run qwen3` 一条命令，从下载到对话 60 秒完成。\n\n它的成功不是技术突破，而是「产品体验突破」：把 80% 的人不想关心的事（权重格式、显存管理、推理优化）全部封装好。",
+      "background": "Ollama 诞生于 2023 年下半年，正值 Llama 2 开源。开发者社区涌出一股「本地 LLM 运动」，但工具链还停留在「研究员水准」——没产品级体验。\n\nOllama 借鉴了 Docker 的成功经验：模型像镜像一样管理（Ollama Modelfile 类似 Dockerfile），一个命令拉起，跨平台一致体验。\n\n更关键的是它在底层集成了 llama.cpp——一个用 C++ 写的、CPU/GPU 都能跑的高性能推理引擎。这意味着 Mac M1/M2/M3 都能跑大模型，把 Apple Silicon 玩家的「闲算力」变成了 AI 算力。\n\n到 2024 年底，Ollama 已经是本地 LLM 的事实标准——几乎所有「本地 AI」的项目都以它为底座。",
+      "howItWorks": "Ollama 的架构分四层：\n\n1. **模型管理层**：用 GGUF 格式存储模型权重，自带 Modelfile 系统（类似 Dockerfile）定制系统 Prompt / 温度 / 上下文长度\n2. **推理引擎层**：集成 llama.cpp，针对不同硬件（CPU/CUDA/Metal/ROCm）自动选最优 backend\n3. **服务层**：本地起一个 OpenAI 兼容的 REST API，端口 11434，Open WebUI / Dify / LangChain 等直接对接\n4. **CLI 层**：`ollama run / pull / list / rm` 极简命令\n\n最巧妙的是 API 兼容 OpenAI——意味着所有用 OpenAI SDK 的项目，**把 base_url 改一下**就能切到本地 Ollama。",
+      "whyHot": [
+        "把「装模型」变成 ollama run qwen3 一行命令，极低门槛",
+        "底层 llama.cpp + 自研推理层，跨 Mac/Windows/Linux 全平台 + Apple Silicon 优化",
+        "OpenAI 兼容 API + Open WebUI 等生态，开发者直接对接现有代码",
+        "Modelfile 系统让模型定制像写 Dockerfile 一样简单",
+        "社区模型库覆盖 200+ 主流开源模型（Llama / Qwen / DeepSeek / Gemma / Mistral...）"
+      ],
+      "highlights": [
+        "一行命令下载/运行/管理 200+ 开源大模型",
+        "支持 Llama / Qwen / DeepSeek / Gemma / Mistral / Phi 等所有主流开源模型",
+        "OpenAI 兼容 REST API（端口 11434），现有代码零成本迁移",
+        "跨平台：macOS / Linux / Windows，支持 Apple Silicon / NVIDIA / AMD GPU",
+        "Modelfile 自定义模型参数、System Prompt、量化精度"
+      ],
+      "useCases": [
+        "个人本地 AI 工作站：Mac mini / 4090 装 Ollama + Open WebUI = 私有 ChatGPT",
+        "开发测试：调 OpenAI SDK 时把 base_url 改 localhost:11434，零费用跑通",
+        "企业内网部署：Ollama + 内网 Open WebUI，数据完全不出域",
+        "教育/科研：学生免费用 Llama 3 / Qwen 做研究，零 API 成本"
+      ],
+      "gradient": ["#0ea5e9", "#1e40af"]
+    },
+    {
+      "id": "browser-use",
+      "name": "browser-use",
+      "owner": "browser-use",
+      "repoUrl": "https://github.com/browser-use/browser-use",
+      "homepage": "https://browser-use.com",
+      "language": "Python",
+      "languageColor": "#3572A5",
+      "stars": 38000,
+      "forks": 4400,
+      "growth": "+4.7k",
+      "tags": ["Agent", "浏览器", "Playwright", "Web Agent", "自动化", "GPT-4V"],
+      "category": "AI Agent",
+      "summary": "让 LLM 直接控制浏览器的 Agent 库",
+      "intro": "browser-use 把「AI 操作浏览器」变成了几行 Python——LLM 能像人一样点击、滚动、填表、抓数据，是当前最热的 Agent 基础设施之一。\n\n它的核心理念极其简单：浏览器是世界上最复杂的 GUI，而 LLM 已经会「看屏幕」了——给它一个浏览器，让它自己操作。\n\n2024 年 11 月，browser-use 上了 Hacker News 首页，紧接着 Claude 4 演示里用 browser-use 完成了一个完整购票流程，GitHub 7 天涨 5k Star。\n\n它最让人兴奋的不是技术，而是解锁了一类全新的应用：以前必须靠人操作的网页（订票、表单、爬数据），现在 AI 可以完全自主完成。",
+      "background": "browser-use 的故事和很多成功项目一样：「创始人自己被这个问题困扰」。\n\nMüllner 和他的团队在做一个 AI 自动购票项目，发现已有的浏览器自动化工具（Selenium / Playwright）都需要人写代码——告诉它「点这个按钮」、「输入这段文字」。但他们想做的不是「让 AI 执行人写好的脚本」，而是「让 AI 真的理解页面、真的决定点哪里」。\n\nbrowser-use 解决了这个「感知 → 决策 → 行动」的闭环。开源后被 LangChain、CrewAI、AutoGen 等所有 Agent 框架集成，成为 Web Agent 的事实标准之一。",
+      "howItWorks": "browser-use 的核心是「DOM 树 + 视觉模型」双轨决策：\n\n1. **页面解析层**：用 Playwright 拿到页面的 DOM 树和截图\n2. **可访问性索引**：把所有可交互元素（按钮、链接、表单）提取成结构化列表，给 LLM 看\n3. **决策层**：LLM（GPT-4V / Claude 3.5+）结合 DOM 树 + 截图，决定下一步动作（点哪个、输入什么、滚动到哪）\n4. **执行层**：把 LLM 的决策翻译成 Playwright 的 API 调用，执行并截图\n5. **回放层**：每一步都截图保存，可视化回放整个浏览过程\n\n与传统 Selenium 最大的区别是：你只告诉 AI「帮我订一张明天去上海的高铁票」，它自己规划、自己点、自己填表——而 Selenium 还得你写 `driver.click('#from-station')` 这种代码。",
+      "whyHot": [
+        "AI Agent 最稀缺的「看得见摸得着」的能力：操作真实网站",
+        "基于 Playwright + 视觉模型，把「点哪个按钮」变成 LLM 决策",
+        "Claude 4 演示引爆热度，GitHub 7 天涨 5k Star",
+        "LangChain / CrewAI / AutoGen 全部集成，生态位卡得准",
+        "开源 + 云服务双形态，个人开发者到大企业都覆盖"
+      ],
+      "highlights": [
+        "让 LLM 像人一样操作浏览器（点击 / 滚动 / 填表 / 抓数据）",
+        "支持任意 LLM（OpenAI / Claude / Gemini / 本地模型）",
+        "可视化每一步决策与回放，便于调试和审计",
+        "与 LangChain / CrewAI / AutoGen 完美集成",
+        "支持代理、Cookies、登录态、验证码（基础）处理"
+      ],
+      "useCases": [
+        "AI 自动购票/订餐：美团、12306、携程的复杂表单 AI 自主操作",
+        "竞品价格监控：定时打开竞品页面，抓取价格/库存，结构化输出",
+        "企业 RPA：用 AI 替代传统 RPA，处理需要「看屏幕决策」的非结构化场景",
+        "AI 数据收集：让 Agent 自主浏览网页填表，把数据收集完全自动化"
+      ],
+      "gradient": ["#f59e0b", "#ef4444"]
+    },
+    {
+      "id": "comfyui",
+      "name": "ComfyUI",
+      "owner": "comfyanonymous",
+      "repoUrl": "https://github.com/comfyanonymous/ComfyUI",
+      "homepage": "https://comfy.org",
+      "language": "Python",
+      "languageColor": "#3572A5",
+      "stars": 75000,
+      "forks": 8200,
+      "growth": "+3.6k",
+      "tags": ["图像生成", "Stable Diffusion", "可视化", "工作流", "Flux", "SDXL"],
+      "category": "AI 图像",
+      "summary": "节点式的 AI 图像/视频生成工作流",
+      "intro": "ComfyUI 用节点图的方式编排 Stable Diffusion / Flux 图像生成流程，是 AI 绘图圈最强大、最可定制的开源工作流工具。\n\n如果说 Stable Diffusion WebUI（A1111）是「Photoshop 风格的 AI 绘图」，那 ComfyUI 就是「Blender 节点编辑器风格的 AI 绘图」——所有环节（模型加载 / Prompt 编码 / 采样器 / ControlNet / LoRA / 后处理）都是可拖拽的节点，可连线、可分支、可循环。\n\n这种节点式架构带来的最大好处是：复杂流程可视化、可复用、可分享。设计师做了一套「电商主图生成」工作流，导出 JSON 发给同事——同事 import 进去就能跑出完全相同的结果。",
+      "background": "ComfyUI 的作者 comfyanonymous 是 Stable Diffusion 生态的核心贡献者之一，他最初只是想给 A1111 WebUI 写一个更高效的推理后端，结果发现节点式 UI 比按钮式 UI 灵活太多，于是干脆做成了一个独立项目。\n\n2023 年 ComfyUI 开源后，正好赶上 Stable Diffusion XL、ControlNet、IP-Adapter、AnimateDiff 等新技术爆发——这些技术都需要复杂的「串联」才能发挥威力，WebUI 的按钮式界面开始捉襟见肘，ComfyUI 趁机成为高端玩家的首选。\n\n2024 年 Flux 模型发布后，ComfyUI 第一时间支持，迅速成为 Flux 创作的事实标准。现在 ComfyUI 已经从「图像生成」扩展到「视频生成（HunyuanVideo / Wan 2.1 / CogVideoX）」、「3D 生成」、「音频生成」，是 AIGC 工作流的瑞士军刀。",
+      "howItWorks": "ComfyUI 的工作原理是「数据流图」：\n\n1. **节点系统**：每个节点是一个 Python 函数，输入输出有明确类型（MODEL / LATENT / IMAGE / CONDITIONING 等）\n2. **连线即数据流**：节点的输出连到另一个节点的输入，就形成一条数据流\n3. **执行引擎**：当用户点击「运行」，引擎按拓扑序执行所有节点，把最终的 IMAGE 输出保存\n4. **缓存优化**：每个节点的输出都会被缓存，调整上游节点不会重算下游，效率极高\n5. **可序列化**：整个工作流可以保存为 JSON / PNG（嵌入元数据），方便分享\n\n一个典型工作流：`CheckpointLoader` → `CLIPTextEncode (Prompt)` → `KSampler` → `VAEDecode` → `SaveImage`，每个节点都可换、可加 ControlNet 节点、可加 LoRA 节点。",
+      "whyHot": [
+        "比 WebUI 更灵活，复杂流程也能可视化、可复用",
+        "插件生态爆发：视频生成、ControlNet、LoRA 一应俱全",
+        "Flux / SD3 / HunYuan / Wan 2.1 等新模型发布即支持，社区跟进速度极快",
+        "工作流可导出 JSON / PNG 分享，设计师团队协作利器",
+        "从图像扩展到视频/3D/音频，是 AIGC 全工作流平台"
+      ],
+      "highlights": [
+        "节点式工作流，可编排任意复杂流程",
+        "支持 SDXL / Flux / HunYuan / Wan 2.1 / CogVideoX 等主流模型",
+        "插件生态 500+，视频/3D/控制网全覆盖",
+        "工作流可导出 JSON 分享与版本管理",
+        "执行引擎智能缓存，调参数秒级响应"
+      ],
+      "useCases": [
+        "电商主图批量生成：搭一套「产品图换背景 + 加文字 + 输出多尺寸」工作流",
+        "AI 短剧制作：用 HunyuanVideo / Wan 2.1 节点工作流，串起文生图→图生视频→音轨合成",
+        "设计师协作：把复杂的「角色一致性 + 风格统一」工作流 JSON 分享给团队",
+        "AI 艺术创作：ControlNet + IP-Adapter + LoRA 组合，做出有个人风格的稳定输出"
+      ],
+      "gradient": ["#7c3aed", "#c026d3"]
+    },
+    {
+      "id": "n8n",
+      "name": "n8n",
+      "owner": "n8n-io",
+      "repoUrl": "https://github.com/n8n-io/n8n",
+      "homepage": "https://n8n.io",
+      "language": "TypeScript",
+      "languageColor": "#3178c6",
+      "stars": 62000,
+      "forks": 17000,
+      "growth": "+2.9k",
+      "tags": ["自动化", "工作流", "AI", "Zapier", "自托管", "节点"],
+      "category": "开发者工具",
+      "summary": "可自托管的工作流自动化平台",
+      "intro": "n8n 是一款「开源自托管版 Zapier」，用节点图把 400+ 服务串起来，AI 时代成为最火的自动化基座。\n\nZapier 涨价、IFTTT 不够灵活、Microsoft Power Automate 锁死在微软生态——开发者需要的是「能自托管、节点够多、能写代码」的工作流工具。n8n 正好命中这三个需求。\n\n2024 年 AI 浪潮来了之后，n8n 又赶上第二波红利：原生支持 LLM 节点（OpenAI / Claude / Ollama）、向量库、Agent 工具调用，开发者可以用它搭「GPT 自动回复邮件」「客服 AI 自动查订单」「AI 抓 RSS 写公众号」这种过去要写一堆胶水代码的工作流。\n\n更狠的是 n8n 提供 fair-code 许可证（可持续使用 + 商业可选付费），既不像 AGPL 那样让企业法务头疼，也不像 MIT 那样让大公司白嫖。",
+      "background": "n8n 的创始人 Jan Oberhauser 是个德国工程师，他 2019 年做这个项目时只是想解决自己的问题：「我想把多个 SaaS 串起来，不想每月给 Zapier 交 50 美元」。\n\n结果这个「给自己用」的工具，在 SaaS 涨价潮 + AI 浪潮中两度踩中风口，2024 年 ARR 突破 4000 万美元，GitHub 6 万 Star。\n\n它的成功证明了一件事：在 SaaS 越来越贵、隐私越来越重要的时代，「可自托管的、节点丰富的、能写代码的工作流工具」是刚需中的刚需。",
+      "howItWorks": "n8n 的核心架构：\n\n1. **节点系统**：每个服务（如 Slack、Notion、Postgres、OpenAI）是一个节点，定义了输入 / 输出 / 凭证 / 动作\n2. **工作流引擎**：基于有向无环图（DAG）执行，支持条件分支、循环、错误处理、并行\n3. **凭证管理**：所有 API Key / OAuth 加密存储，跨工作流复用\n4. **代码节点**：可插入 JavaScript / Python 自定义逻辑，处理节点不能覆盖的边角案例\n5. **AI 节点**：原生集成 OpenAI / Anthropic / Ollama / 向量库，让 LLM 调用和工作流融为一体\n6. **部署模式**：自托管（Docker / npm） / 托管 SaaS / 嵌入自家产品 三种\n\n技术栈是 TypeScript + Vue 3 + SQLite/Postgres，部署包 100MB 左右，单实例可扛住中小企业的工作流量。",
+      "whyHot": [
+        "Zapier 涨价后，开发者和中小企业转向 n8n，自托管 + 公平开源（可持续许可证）",
+        "原生 AI 节点（LLM、向量库、Agent）+ 400 集成，几乎能自动做任何事",
+        "可嵌入自家产品做「AI 自动化能力」，多家 SaaS 拿它做底座",
+        "Fair-code 许可证对商业友好，大厂法务愿意批",
+        "TypeScript 全栈，开发者可以自己写自定义节点"
+      ],
+      "highlights": [
+        "400+ 服务节点 + 自定义代码节点 + AI 节点",
+        "支持 AI Agent / RAG / 向量库，原生对接 LLM 工具链",
+        "可视化工作流，自托管/SaaS 双模式",
+        "活跃社区 + fair-code 许可证，对商业友好",
+        "嵌入模式：把 n8n 引擎嵌入自家 SaaS，提供工作流能力"
+      ],
+      "useCases": [
+        "企业自动化：CRM / 工单 / 财务系统的跨系统数据流自动同步",
+        "AI 内容运营：RSS 抓取 → GPT 改写 → 自动发到公众号 / X / 知乎",
+        "AI 客服：用户消息 → GPT 回复 → Slack 通知客服 → 严重问题升级",
+        "SaaS 嵌入：自家产品集成 n8n，让用户自己配置自动化工作流"
+      ],
+      "gradient": ["#ec4899", "#f43f5e"]
+    },
+    {
+      "id": "superpowers",
+      "name": "Superpowers",
+      "owner": "obra",
+      "repoUrl": "https://github.com/obra/superpowers",
+      "homepage": "https://openclawapi.org/zh/blog/2026-03-14-superpowers",
+      "language": "Shell",
+      "languageColor": "#89e051",
+      "stars": 233000,
+      "forks": 18500,
+      "growth": "+21.3k",
+      "tags": ["AI 编程", "Claude Code", "Skill", "TDD", "Spec", "OpenSpec"],
+      "category": "AI 编程",
+      "summary": "Claude Code 的工程化工作流增强包",
+      "intro": "Superpowers 是 Claude Code / Cursor / Codex 的「超能力包」——20+ 可组合 Skills，把 AI 编程从「写代码」升级为「完整工程流程」。\n\n它不写代码，它把「怎么写代码」变成可复用的工作流：先写 Spec、再写测试、再实现、Code Review、提交 PR——每一步都是一个 Skill，AI 在写代码时自动按这个流程走。\n\n2026 年初 Claude Code 火起来后，开发者很快发现一个尴尬事实：AI 写代码是快了，但「不按工程规范写」导致代码质量反而下降——没有 Spec 直接写、没有 Test 直接实现、写完不 Review 直接提 PR。\n\nSuperpowers 解决了这个「AI 编程工程的最后一公里」：把 TDD / Spec-Driven / Code Review 这些人类工程师的最佳实践，编码成 AI 可以自动执行的工作流。",
+      "background": "Superpowers 的作者 Jesse Vincent（obra）是著名的开源贡献者——他之前做过 Keyboardio、Notmuch、Ledger 等知名项目。在 AI 编程浪潮中，他看到 Claude Code 的潜力，也看到它的工程化缺陷。\n\n他的思路是：不要让 AI 自己决定怎么写代码——把人类工程师的最佳实践（需求分析、Spec 评审、TDD、Code Review）做成 AI 强制执行的步骤。\n\n这个项目一开源就被 Claude Code 社区疯传，半年涨到 23 万 Star——成为 Claude Code 生态最受欢迎的插件，甚至反向推动了 OpenSpec 这个开放标准的诞生。",
+      "howItWorks": "Superpowers 的核心是「Skill 协议 + 工作流编排」：\n\n1. **Skill 定义**：每个 Skill 是一个 Markdown 文件，描述「在什么场景触发」「执行什么步骤」「输出什么格式」\n2. **自动加载**：Claude Code / Cursor / Codex 启动时自动加载所有 Skill，存在上下文里\n3. **工作流编排**：Skill 之间有依赖关系，比如「先写 Spec」Skill 完成后才会触发「按 Spec 实现」Skill\n4. **强制执行**：AI 在对应场景必须调用对应 Skill，不能跳过（比如：先有 Spec 才有 Implementation）\n5. **OpenSpec 兼容**：所有 Skill 描述遵循 OpenSpec 标准，可跨工具复用\n\n典型工作流：用户说「加一个新功能」→ AI 加载 brainstorming Skill 提问澄清 → 加载 writing-spec Skill 写 Spec → 加载 writing-tests Skill 写测试 → 加载 implementing Skill 写实现 → 加载 code-review Skill 自审 → 加载 writing-pr Skill 写 PR 描述。",
+      "whyHot": [
+        "Claude Code 生态最热门插件，「先 Spec 后 Code」的工作流让 AI 不再瞎写",
+        "20+ Skills 覆盖需求评审、TDD、Code Review，AI 编程从 demo 走向工程",
+        "社区驱动 + OpenSpec 标准，Cursor/Windsurf/Kiro 等 18+ 工具通用",
+        "解决了 Claude Code 最大的痛点：「写代码快但质量差」",
+        "MIT 协议，可商用，可二次定制"
+      ],
+      "highlights": [
+        "20+ 可组合 Skills（brainstorming / writing-spec / writing-tests / implementing / code-review ...）",
+        "Claude Code / Cursor / Codex / Gemini CLI / Windsurf / Kiro 等 18+ 工具全兼容",
+        "基于 OpenSpec 开放标准，跨工具复用 Skill",
+        "MIT 开源，社区驱动，已成 Claude Code 事实标准",
+        "工作流可视化、可调试，AI 编程不再是黑盒"
+      ],
+      "useCases": [
+        "AI 编程工程化：把 TDD / Spec / Review 流程强加给 AI，杜绝「AI 瞎写」",
+        "团队 AI 协作规范：所有工程师用同一套 Superpowers 工作流，输出风格统一",
+        "新人 AI 编程入门：让 Superpowers 教新人怎么规范地与 AI 协作",
+        "质量敏感项目（金融/医疗/工业）：AI 编程必须走完整流程，Superpowers 是保障"
+      ],
+      "gradient": ["#84cc16", "#22c55e"]
+    }
+  ]
+}

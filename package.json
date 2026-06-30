@@ -1,0 +1,18 @@
+{
+  "name": "tophub",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "description": "TopHub — daily-refreshed GitHub trending deep-dive site",
+  "homepage": ".",
+  "scripts": {
+    "fetch": "node scripts/fetch-stats.mjs",
+    "insights": "node scripts/generate-insights.mjs",
+    "build": "node scripts/build-data.mjs",
+    "refresh": "npm run fetch && npm run insights && npm run build",
+    "dev": "python3 -m http.server 3001"
+  },
+  "engines": {
+    "node": ">=20"
+  }
+}

@@ -1,0 +1,62 @@
+name: Refresh Trending Data
+
+on:
+  schedule:
+    # 每天 UTC 01:00 (=北京时间 09:00) 跑一次
+    - cron: "0 1 * * *"
+  workflow_dispatch:
+    inputs:
+      since:
+        description: "抓 trending 时的起始时间（天）"
+        required: false
+        default: "7"
+
+permissions:
+  contents: write
+
+jobs:
+  refresh:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+          cache: "npm"
+
+      - name: Fetch real-time stats from GitHub API
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: node scripts/fetch-stats.mjs
+
+      - name: Generate Chinese insights (LLM, optional)
+        env:
+          OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
+          OPENAI_BASE_URL: ${{ secrets.OPENAI_BASE_URL }}
+          OPENAI_MODEL: ${{ secrets.OPENAI_MODEL }}
+        run: |
+          if [ -n "$OPENAI_API_KEY" ]; then
+            node scripts/generate-insights.mjs
+          else
+            echo "No OPENAI_API_KEY set, skip LLM step (using curated content)."
+          fi
+
+      - name: Rebuild data.js
+        run: node scripts/build-data.mjs
+
+      - name: Commit & push if changed
+        run: |
+          git config user.name "tophub-bot"
+          git config user.email "tophub-bot@users.noreply.github.com"
+          git add projects/data.json assets/data.js content/
+          if git diff --cached --quiet; then
+            echo "No changes to commit."
+          else
+            git commit -m "chore(data): refresh trending stats [skip ci]"
+            git push
+          fi

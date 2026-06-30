@@ -1,0 +1,240 @@
+<!doctype html>
+<html lang="zh-CN" class="dark">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+    <meta name="theme-color" content="#08090d" />
+    <title>TopHub · GitHub 热门项目深度解读</title>
+    <meta name="description" content="TopHub 每天精选 GitHub 最火的项目，深度解读为什么火、解决什么问题、怎么用起来。" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;600&family=Noto+Sans+SC:wght@400;500;600;700;800;900&display=swap" rel="stylesheet" />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+      tailwind.config = {
+        darkMode: 'class',
+        theme: {
+          extend: {
+            fontFamily: {
+              sans: ['Inter', 'Noto Sans SC', 'system-ui', 'sans-serif'],
+              mono: ['JetBrains Mono', 'ui-monospace', 'monospace'],
+              display: ['Inter', 'Noto Sans SC', 'system-ui', 'sans-serif'],
+            },
+            colors: {
+              ink: {
+                50: '#f7f8fa',
+                100: '#eceff4',
+                200: '#dde2eb',
+                300: '#b8bfcc',
+                400: '#8a93a6',
+                500: '#697085',
+                600: '#535a6e',
+                700: '#43485a',
+                800: '#2a2e3a',
+                900: '#13151b',
+                950: '#08090d',
+              },
+              accent: {
+                50: '#effaff',
+                100: '#d9f1ff',
+                200: '#b6e4ff',
+                300: '#84d3ff',
+                400: '#4ebcff',
+                500: '#22a0ff',
+                600: '#0e87ee',
+                700: '#0f6dc4',
+                800: '#115aa0',
+                900: '#114c83',
+              },
+            },
+            animation: {
+              'float-slow': 'float 9s ease-in-out infinite',
+              'pulse-glow': 'pulseGlow 3s ease-in-out infinite',
+              'shimmer': 'shimmer 6s linear infinite',
+              'marquee': 'marquee 40s linear infinite',
+            },
+            keyframes: {
+              float: { '0%,100%': { transform: 'translateY(0)' }, '50%': { transform: 'translateY(-12px)' } },
+              pulseGlow: { '0%,100%': { opacity: 0.6 }, '50%': { opacity: 1 } },
+              shimmer: { '0%': { backgroundPosition: '-200% 0' }, '100%': { backgroundPosition: '200% 0' } },
+              marquee: { '0%': { transform: 'translateX(0)' }, '100%': { transform: 'translateX(-50%)' } },
+            },
+          },
+        },
+      };
+    </script>
+    <style>
+      /* === base === */
+      html { scroll-behavior: smooth; -webkit-text-size-adjust: 100%; }
+      body { font-family: 'Inter', 'Noto Sans SC', system-ui, sans-serif; }
+      ::selection { background: rgba(34,160,255,0.35); color: #fff; }
+      img { -webkit-user-drag: none; }
+      button { -webkit-tap-highlight-color: transparent; }
+
+      /* === scrollbar === */
+      ::-webkit-scrollbar { width: 8px; height: 8px; }
+      ::-webkit-scrollbar-track { background: transparent; }
+      ::-webkit-scrollbar-thumb { background: rgba(135,144,163,0.18); border-radius: 8px; }
+      ::-webkit-scrollbar-thumb:hover { background: rgba(135,144,163,0.32); }
+
+      /* === theme tokens === */
+      .dark body { background: #08090d; color: #eceff4; }
+      .light body { background: #f7f8fa; color: #13151b; }
+
+      /* === background canvas === */
+      .bg-grid {
+        background-image:
+          linear-gradient(rgba(135,144,163,0.06) 1px, transparent 1px),
+          linear-gradient(90deg, rgba(135,144,163,0.06) 1px, transparent 1px);
+        background-size: 64px 64px;
+      }
+      .bg-grid-light {
+        background-image:
+          linear-gradient(rgba(15,17,21,0.04) 1px, transparent 1px),
+          linear-gradient(90deg, rgba(15,17,21,0.04) 1px, transparent 1px);
+        background-size: 64px 64px;
+      }
+      .bg-aurora {
+        background:
+          radial-gradient(60% 50% at 18% -10%, rgba(34,160,255,0.22) 0%, transparent 60%),
+          radial-gradient(50% 40% at 85% 0%, rgba(236,72,153,0.18) 0%, transparent 60%),
+          radial-gradient(60% 50% at 50% 100%, rgba(16,185,129,0.14) 0%, transparent 60%);
+      }
+      .bg-aurora-light {
+        background:
+          radial-gradient(60% 50% at 18% -10%, rgba(34,160,255,0.18) 0%, transparent 60%),
+          radial-gradient(50% 40% at 85% 0%, rgba(236,72,153,0.14) 0%, transparent 60%),
+          radial-gradient(60% 50% at 50% 100%, rgba(16,185,129,0.10) 0%, transparent 60%);
+      }
+
+      /* === glass nav === */
+      .nav-glass {
+        background: rgba(8, 9, 13, 0.65);
+        backdrop-filter: saturate(180%) blur(20px);
+        -webkit-backdrop-filter: saturate(180%) blur(20px);
+        border-bottom: 1px solid rgba(255,255,255,0.06);
+      }
+      .light .nav-glass {
+        background: rgba(247, 248, 250, 0.78);
+        border-bottom: 1px solid rgba(15,17,21,0.05);
+      }
+
+      /* === card surface === */
+      .card-surface {
+        background: linear-gradient(180deg, rgba(255,255,255,0.035) 0%, rgba(255,255,255,0.012) 100%);
+        border: 1px solid rgba(255,255,255,0.07);
+        backdrop-filter: blur(8px);
+      }
+      .light .card-surface {
+        background: linear-gradient(180deg, #ffffff 0%, #fbfcfe 100%);
+        border: 1px solid rgba(15,17,21,0.05);
+      }
+
+      /* === premium feature card === */
+      .feature-card {
+        position: relative;
+        overflow: hidden;
+        background: linear-gradient(180deg, rgba(255,255,255,0.04) 0%, rgba(255,255,255,0.01) 100%);
+        border: 1px solid rgba(255,255,255,0.08);
+      }
+      .light .feature-card {
+        background: #ffffff;
+        border-color: rgba(15,17,21,0.06);
+      }
+      .feature-card::before {
+        content: ''; position: absolute; inset: 0; padding: 1px; border-radius: inherit;
+        background: linear-gradient(140deg, rgba(34,160,255,0.4) 0%, transparent 35%, transparent 65%, rgba(236,72,153,0.4) 100%);
+        -webkit-mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
+        -webkit-mask-composite: xor; mask-composite: exclude;
+        opacity: 0; transition: opacity 0.5s ease;
+      }
+      .feature-card:hover::before { opacity: 1; }
+
+      /* === magnetic button === */
+      .magnetic { transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.35s ease; }
+      .magnetic:hover { transform: translateY(-2px); }
+
+      /* === reveal on scroll === */
+      .reveal { opacity: 0; transform: translateY(20px); transition: opacity 0.7s ease, transform 0.7s cubic-bezier(0.16,1,0.3,1); }
+      .reveal.in { opacity: 1; transform: translateY(0); }
+
+      /* === chip === */
+      .chip { font-family: 'JetBrains Mono', monospace; font-size: 11px; letter-spacing: 0.02em; }
+
+      /* === pulse === */
+      .pulse-dot::before {
+        content: ''; position: absolute; inset: -2px; border-radius: 9999px;
+        background: rgba(16,185,129,0.5); animation: ping 1.6s cubic-bezier(0,0,0.2,1) infinite;
+      }
+      @keyframes ping { 75%,100% { transform: scale(2.4); opacity: 0; } }
+
+      /* === shimmer text === */
+      .text-shimmer {
+        background: linear-gradient(90deg, #fff 0%, #84d3ff 25%, #ec4899 50%, #10b981 75%, #fff 100%);
+        background-size: 200% 100%;
+        -webkit-background-clip: text; background-clip: text; color: transparent;
+        animation: shimmer 6s linear infinite;
+      }
+      .light .text-shimmer {
+        background: linear-gradient(90deg, #13151b 0%, #0e87ee 25%, #ec4899 50%, #10b981 75%, #13151b 100%);
+        background-size: 200% 100%;
+        -webkit-background-clip: text; background-clip: text; color: transparent;
+        animation: shimmer 6s linear infinite;
+      }
+
+      /* === code block === */
+      pre.code-block {
+        font-family: 'JetBrains Mono', monospace;
+        background: #0a0c12; color: #b8bfcc;
+        border: 1px solid rgba(255,255,255,0.06);
+        border-radius: 12px; padding: 16px 18px; font-size: 13px; line-height: 1.75;
+        overflow-x: auto;
+      }
+      .light pre.code-block { background: #13151b; color: #dde2eb; }
+
+      /* === hero display text === */
+      .display {
+        font-family: 'Inter', 'Noto Sans SC', system-ui, sans-serif;
+        font-weight: 800;
+        letter-spacing: -0.04em;
+        line-height: 0.95;
+      }
+      .display .em { font-style: italic; font-weight: 800; }
+
+      /* === card cover art fallback === */
+      .cover-art {
+        position: relative; overflow: hidden;
+      }
+      .cover-art::after {
+        content: ''; position: absolute; inset: 0;
+        background: linear-gradient(180deg, transparent 50%, rgba(8,9,13,0.65) 100%);
+        pointer-events: none;
+      }
+
+      /* === tab pill === */
+      .tab-pill {
+        transition: all 0.25s cubic-bezier(0.16,1,0.3,1);
+      }
+      .tab-pill:active { transform: scale(0.96); }
+
+      /* === mobile tab bar (hidden on desktop) === */
+      .mobile-tab-bar { display: none; }
+      @media (max-width: 768px) {
+        .mobile-tab-bar { display: flex; }
+        .desktop-nav { display: none; }
+      }
+
+      /* === no horizontal scroll on small screens === */
+      body { overflow-x: hidden; }
+
+      /* === hide scrollbar on filter rail === */
+      .no-scrollbar { scrollbar-width: none; -ms-overflow-style: none; }
+      .no-scrollbar::-webkit-scrollbar { display: none; }
+    </style>
+  </head>
+  <body class="antialiased">
+    <div id="app"></div>
+    <script src="./assets/data.js"></script>
+    <script src="./assets/app.js"></script>
+  </body>
+</html>
